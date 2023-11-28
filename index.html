@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Client Testimonial Slider</title>
+    <style>
+        .slider {
+            position: relative;
+            width: 100%;
+            height: 200px;
+            overflow: hidden;
+        }
+        .slide {
+            position: absolute;
+            width: 100%;
+            height: 200px;
+            transition: opacity 1s;
+        }
+        .slider:hover .slide {
+            opacity: 0;
+        }
+        .slider:hover .slide:hover {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="slider">
+        <div class="slide">
+            <p>This service is amazing! The team went above and beyond to meet our expectations. The quality of work is exceptional, and the attention to detail is impressive. We highly recommend their services!</p>
+        </div>
+        <div class="slide">
+            <p>We are extremely satisfied with the results. The professionalism and creativity demonstrated by the team were outstanding. Our project was delivered on time and exceeded our expectations. Great job!</p>
+        </div>
+        <div class="slide">
+            <p>Working with this team has been a pleasure. They are highly skilled and dedicated professionals. Communication was seamless, and they were always responsive to our needs. We look forward to future collaborations!</p>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            var slideIndex = 0;
+            showSlides();
+
+            function showSlides() {
+                var i;
+                var slides = document.getElementsByClassName("slide");
+                for (i = 0; i < slides.length; i++) {
+                    slides[i].style.display = "none";  
+                }
+                slideIndex++;
+                if (slideIndex > slides.length) {slideIndex = 1}    
+                slides[slideIndex-1].style.display = "block";  
+                setTimeout(showSlides, 2000); // Change image every 2 seconds
+            }
+        });
+    </script>
+</body>
+</html>
